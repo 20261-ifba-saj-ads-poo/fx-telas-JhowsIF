@@ -76,7 +76,7 @@ public class MovimentacaoController {
 
         // Direciona para o método correto dentro do Estoque
         switch (acaoSelecionada) {
-            case "Emprestar":
+            case "Pegar Emprestado":
                 App.estoque.emprestarEquipamento(equipamentoSelecionado, funcionarioSelecionado);
                 System.out.println("Equipamento emprestado com sucesso!");
                 break;

@@ -1,11 +1,15 @@
 package br.edu.ifba.saj.ads.poo.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Equipamento {
     private int id;
     private String nome;
     private int numeroDeSerie;
     private Localizacao localizacao;
     private Status status;
+    private List<Registro> registros;
 
     private static int contadorId = 1;
 
@@ -15,6 +19,7 @@ public class Equipamento {
         this.numeroDeSerie = numeroDeSerie;
         this.localizacao = localizacao;
         this.status = Status.DISPONIVEL;
+        this.registros = new ArrayList<>();
 
         Equipamento.contadorId++;
     }
@@ -57,5 +62,13 @@ public class Equipamento {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public List<Registro> getRegistros() {
+        return registros;
+    }
+
+    public void setRegistros(List<Registro> registros) {
+        this.registros = registros;
     }
 }
