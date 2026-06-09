@@ -2,37 +2,43 @@ package br.edu.ifba.saj.ads.poo;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
+import java.io.IOException;
 
 public class IndexController {
 
-    
     @FXML
-    private BorderPane pane;
+    public void abrirLocalizacao(ActionEvent event) {
+        try {
+            App.setRoot("Localizacao");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
-    public void abrirCadastarFilme(ActionEvent event) {
+    public void abrirCadastrarFuncionario(ActionEvent event) {
         try {
-            pane.setCenter(FXMLLoader.load(getClass().getResource("Filme.fxml")));
-        } catch (Exception e) {
+            App.setRoot("Funcionario");
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     @FXML
-    public void abrirCadastarSessao(ActionEvent event) {
+    public void abrirCadastrarEquipamento(ActionEvent event) {
         try {
-            pane.setCenter(FXMLLoader.load(getClass().getResource("Sessao.fxml")));            
-        } catch (Exception e) {
+            App.setRoot("Equipamento");
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     @FXML
-    public void abrirVenderIngresso(ActionEvent event) {
+    public void abrirMovimentacao(ActionEvent event) {
         try {
-            pane.setCenter(FXMLLoader.load(getClass().getResource("Ingresso.fxml")));
-        } catch (Exception e) {
+            // Você ainda vai criar o Movimentacao.fxml
+            App.setRoot("Movimentacao");
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

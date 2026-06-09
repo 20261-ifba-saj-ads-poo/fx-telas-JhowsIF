@@ -1,3 +1,4 @@
-# Sistema de Cinema e Ingressos
+# Sistema de Controle de Inventário de Equipamentos
 
-Desenvolva um sistema para um cinema. O cinema exibe vários `Filme`, cada um com `Sessao` em horários diferentes. Os `Cliente` podem comprar `Ingresso`s para sessões específicas. O sistema deve controlar a quantidade de ingressos disponíveis por sessão e permitir consultar sessões por filme
+Desenvolva um sistema para controlar o inventário de equipamentos de uma empresa. Cada equipamento tem informações como nome, número de série, localização e status (em uso, disponível, manutenção). Funcionários podem solicitar equipamentos. O sistema deve registrar solicitações, controlar a disponibilidade e listar equipamentos por localização.
+

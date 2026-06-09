@@ -1,5 +1,6 @@
 package br.edu.ifba.saj.ads.poo;
 
+import br.edu.ifba.saj.ads.poo.model.Estoque;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,6 +13,10 @@ import java.io.IOException;
  * JavaFX App
  */
 public class App extends Application {
+
+    // É EXATAMENTE AQUI QUE O ESTOQUE NASCE!
+    // Como ele é "public static", todas as outras telas vão conseguir enxergar ele.
+    public static Estoque estoque = new Estoque();
 
     private static Scene scene;
 
