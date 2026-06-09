@@ -42,4 +42,14 @@ public class IndexController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    public void abrirRegistro(ActionEvent event) {
+        try {
+            // Você ainda vai criar o Movimentacao.fxml
+            App.setRoot("Registros");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

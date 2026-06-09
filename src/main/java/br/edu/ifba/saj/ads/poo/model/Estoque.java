@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Estoque {
-    private List<Equipamento> equipamentos;
-    private List<Funcionario> funcionarios;
-    private List<Registro> registros;
-    private List<Localizacao> localizacoes;
+    private static List<Equipamento> equipamentos;
+    private static List<Funcionario> funcionarios;
+    private static List<Registro> registros;
+    private static List<Localizacao> localizacoes;
 
     public Estoque() {
         this.equipamentos = new ArrayList<>();

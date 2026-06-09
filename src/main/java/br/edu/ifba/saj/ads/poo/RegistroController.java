@@ -1,46 +1,47 @@
 package br.edu.ifba.saj.ads.poo;
 
-import br.edu.ifba.saj.ads.poo.model.Localizacao;
+import br.edu.ifba.saj.ads.poo.model.Funcionario;
+import br.edu.ifba.saj.ads.poo.model.Registro;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 public class RegistroController {
 
-    @FXML private TextField txLocalizacao;
-    @FXML private TableView<Localizacao> tbLocalizacoes;
-    @FXML private TableColumn<Localizacao, Integer> clmId;
-    @FXML private TableColumn<Localizacao, String> clmLocalizacao; // Alinhado com o FXML
+    private ObservableList<Registro> listaObservable;
 
-    private ObservableList<Localizacao> listaObservable;
+
+    @FXML
+    private TableColumn<Registro, String> clmAcao;
+
+    @FXML
+    private TableColumn<Registro, LocalDateTime> clmDataHora;
+
+    @FXML
+    private TableColumn<Registro, String> clmEquipamento;
+
+    @FXML
+    private TableColumn<Registro, String> clmFuncionaro;
+
+    @FXML
+    private TableView<Registro> tbRegistros;
 
     @FXML
     public void initialize() {
-        clmId.setCellValueFactory(new PropertyValueFactory<>("id"));
-
-        // Mantemos "nome" porque a classe modelo Localizacao tem o atributo "nome"
-        clmLocalizacao.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        clmAcao.setCellValueFactory(new PropertyValueFactory<>("acao"));
+        clmDataHora.setCellValueFactory(new PropertyValueFactory<>("dataDaMudanca"));
+        clmEquipamento.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getEquipamento().getNome()));
+        clmFuncionaro.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getFuncionario().getNome()));
 
         atualizarTabela();
-    }
-
-    @FXML
-    void salvar(ActionEvent event) {
-        String textoDigitado = txLocalizacao.getText();
-
-        if (!textoDigitado.trim().isEmpty()) {
-            Localizacao novaLoc = new Localizacao(textoDigitado);
-            App.estoque.adicionarLocalizacao(novaLoc);
-
-            txLocalizacao.clear();
-            atualizarTabela();
-        }
     }
 
     @FXML
@@ -53,7 +54,8 @@ public class RegistroController {
     }
 
     private void atualizarTabela() {
-        listaObservable = FXCollections.observableArrayList(App.estoque.getLocalizacoes());
-        tbLocalizacoes.setItems(listaObservable);
+        listaObservable = FXCollections.observableArrayList(App.estoque.getRegistros());
+        tbRegistros.setItems(listaObservable);
     }
+
 }

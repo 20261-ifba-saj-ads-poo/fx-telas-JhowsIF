@@ -12,7 +12,7 @@
     <children>
         <Label layoutX="14.0" layoutY="48.0" text="Nome: " AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="48.0" />
         <TextField fx:id="txNome" layoutX="80.0" layoutY="44.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="44.0" />
-        <TextField fx:id="txDuracao" alignment="CENTER_RIGHT" layoutX="80.0" layoutY="78.0" prefHeight="25.0" prefWidth="510.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="78.0" />
+        <TextField fx:id="txDepartamento" layoutX="80.0" layoutY="78.0" prefHeight="25.0" prefWidth="510.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="78.0" />
         <Label layoutX="14.0" layoutY="82.0" text="Departamento" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="82.0" />
         <Button defaultButton="true" layoutX="532.0" layoutY="110.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="110.0" />
         <Label alignment="CENTER" layoutX="154.0" text="Cadastro de Funcionario" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -20,7 +20,7 @@
                 <Font size="35.0" />
             </font>
         </Label>
-        <TableView fx:id="tbFilmes" layoutX="8.0" layoutY="140.0" prefHeight="126.0" prefWidth="562.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="140.0">
+        <TableView fx:id="tbFuncionarios" layoutX="8.0" layoutY="140.0" prefHeight="126.0" prefWidth="562.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="140.0">
             <columns>
                 <TableColumn fx:id="clmId" maxWidth="30.0" minWidth="28.0" prefWidth="30.0" resizable="false" text="ID" />
                 <TableColumn fx:id="clmNome" editable="false" maxWidth="1.7976931348623157E308" minWidth="200.0" prefWidth="200.0" text="Nome" />
@@ -30,6 +30,6 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
         </TableView>
-      <Button layoutX="14.0" layoutY="13.0" mnemonicParsing="false" text="&lt;=" />
+      <Button layoutX="14.0" layoutY="13.0" onAction="#voltar" mnemonicParsing="false" text="&lt;=" />
     </children>
 </AnchorPane>

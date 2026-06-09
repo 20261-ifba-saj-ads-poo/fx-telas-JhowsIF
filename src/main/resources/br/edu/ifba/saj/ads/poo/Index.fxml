@@ -29,7 +29,7 @@
 
             <Button layoutX="32.0" layoutY="162.0" mnemonicParsing="false" onAction="#abrirMovimentacao" prefHeight="39.0" prefWidth="528.0" text="Movimentacao de Estoque" AnchorPane.bottomAnchor="83.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="28.0" />
 
-            <Button layoutX="38.0" layoutY="212.0" mnemonicParsing="false" onAction="#abrirMovimentacao" prefHeight="39.0" prefWidth="528.0" text="Registro de Movimentacoes" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="28.0" />
+            <Button layoutX="38.0" layoutY="212.0" mnemonicParsing="false" onAction="#abrirRegistro" prefHeight="39.0" prefWidth="528.0" text="Registro de Movimentacoes" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="28.0" />
          </children>
       </AnchorPane>
    </bottom>

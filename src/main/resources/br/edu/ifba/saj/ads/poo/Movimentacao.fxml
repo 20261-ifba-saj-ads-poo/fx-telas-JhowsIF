@@ -16,7 +16,7 @@
                 <Font size="35.0" />
             </font>
         </Label>
-        <Button layoutX="14.0" layoutY="13.0" mnemonicParsing="false" text="&lt;=" />
+        <Button layoutX="14.0" layoutY="13.0" onAction="#voltar" mnemonicParsing="false" text="&lt;=" />
         <Label layoutX="15.0" layoutY="185.0" text="Funcionario:" />
         <ChoiceBox fx:id="slFilme" layoutX="128.0" layoutY="184.0" prefHeight="25.0" prefWidth="491.0" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="10.0" />
       <ChoiceBox fx:id="slFilme1" layoutX="110.0" layoutY="150.0" prefHeight="25.0" prefWidth="491.0" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="10.0" />

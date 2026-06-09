@@ -23,8 +23,6 @@ public class LocalizacaoController {
     @FXML
     public void initialize() {
         clmId.setCellValueFactory(new PropertyValueFactory<>("id"));
-
-        // Mantemos "nome" porque a classe modelo Localizacao tem o atributo "nome"
         clmLocalizacao.setCellValueFactory(new PropertyValueFactory<>("nome"));
 
         atualizarTabela();
