@@ -13,8 +13,8 @@ public class Registro {
         this.equipamento = equipamento;
         this.acao = acao;
         this.dataDaMudanca = dataDaMudanca;
-        equipamento.getRegistros().add(this);
-
+        equipamento.adicionarRegistro(this);
+        funcionario.adicionarRegistro(this);
     }
 
     public Funcionario getFuncionario() {

@@ -2,8 +2,10 @@ package br.edu.ifba.saj.ads.poo;
 
 import br.edu.ifba.saj.ads.poo.model.Equipamento;
 import br.edu.ifba.saj.ads.poo.model.Funcionario;
+import br.edu.ifba.saj.ads.poo.model.Status;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.util.StringConverter;
 
@@ -70,23 +72,44 @@ public class MovimentacaoController {
 
         // Verifica se tudo foi preenchido
         if (equipamentoSelecionado == null || funcionarioSelecionado == null || acaoSelecionada == null) {
-            System.out.println("Por favor, preencha todos os campos para realizar a movimentação!");
+            new Alert(Alert.AlertType.WARNING,String.format("Por favor, preencha todos os campos para realizar a movimentação!")).showAndWait();
             return;
         }
 
         // Direciona para o método correto dentro do Estoque
         switch (acaoSelecionada) {
             case "Pegar Emprestado":
+                if(equipamentoSelecionado.getStatus() == Status.EM_USO){
+                    new Alert(Alert.AlertType.WARNING,String.format("O equipamento %s ja esta em uso!",equipamentoSelecionado.getNome())).showAndWait();
+                    break;
+                } else if (equipamentoSelecionado.getStatus() == Status.MANUTENCAO) {
+                    new Alert(Alert.AlertType.WARNING, String.format("O equipamento %s esta em manutencao!",equipamentoSelecionado.getNome())).showAndWait();
+                    break;
+                }
                 App.estoque.emprestarEquipamento(equipamentoSelecionado, funcionarioSelecionado);
-                System.out.println("Equipamento emprestado com sucesso!");
+                new Alert(Alert.AlertType.INFORMATION,String.format("Equipamento emprestado com sucesso!",equipamentoSelecionado.getNome())).showAndWait();
                 break;
             case "Devolver":
+                if(equipamentoSelecionado.getStatus()== Status.DISPONIVEL){
+                    new Alert(Alert.AlertType.WARNING,String.format("O equipamento %s nao esta em uso!",equipamentoSelecionado.getNome())).showAndWait();
+                    break;
+                } else if (equipamentoSelecionado.getStatus() == Status.MANUTENCAO) {
+                    new Alert(Alert.AlertType.WARNING, String.format("O equipamento %s ja esta em manutencao!",equipamentoSelecionado.getNome())).showAndWait();
+                    break;
+                }
                 App.estoque.devolverEquipamento(equipamentoSelecionado, funcionarioSelecionado);
-                System.out.println("Equipamento devolvido com sucesso!");
+                new Alert(Alert.AlertType.INFORMATION,String.format("Equipamento devolvido com sucesso!",equipamentoSelecionado.getNome())).showAndWait();
                 break;
             case "Consertar":
+                if(equipamentoSelecionado.getStatus()== Status.EM_USO){
+                    new Alert(Alert.AlertType.WARNING,String.format("O equipamento %s esta em uso!",equipamentoSelecionado.getNome())).showAndWait();
+                    break;
+                } else if (equipamentoSelecionado.getStatus() == Status.MANUTENCAO) {
+                    new Alert(Alert.AlertType.WARNING, String.format("O equipamento %s ja esta em manutencao!",equipamentoSelecionado.getNome())).showAndWait();
+                    break;
+                }
                 App.estoque.consertarEquipamento(equipamentoSelecionado, funcionarioSelecionado);
-                System.out.println("Equipamento enviado para conserto!");
+                new Alert(Alert.AlertType.INFORMATION,String.format("Equipamento enviado para conserto!")).showAndWait();
                 break;
         }
 

@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -35,9 +36,9 @@ public class LocalizacaoController {
         if (!textoDigitado.trim().isEmpty()) {
             Localizacao novaLoc = new Localizacao(textoDigitado);
             App.estoque.adicionarLocalizacao(novaLoc);
-
             txLocalizacao.clear();
             atualizarTabela();
+            new Alert(Alert.AlertType.INFORMATION,String.format("Localizacao Registrada com sucesso!")).showAndWait();
         }
     }
 

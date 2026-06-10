@@ -24,6 +24,10 @@ public class Equipamento {
         Equipamento.contadorId++;
     }
 
+    public void adicionarRegistro(Registro registro){
+        this.registros.add(registro);
+    }
+
     public int getId() {
         return id;
     }
@@ -65,7 +69,7 @@ public class Equipamento {
     }
 
     public List<Registro> getRegistros() {
-        return registros;
+        return List.copyOf(registros);
     }
 
     public void setRegistros(List<Registro> registros) {

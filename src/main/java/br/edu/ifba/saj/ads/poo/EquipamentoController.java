@@ -4,6 +4,7 @@ import br.edu.ifba.saj.ads.poo.model.Equipamento; // Importando Equipamento
 import br.edu.ifba.saj.ads.poo.model.Localizacao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
@@ -70,8 +71,7 @@ public class EquipamentoController {
 
         // 3. Verifica se o usuário realmente selecionou uma localização
         if (localizacaoSelecionada == null) {
-            System.out.println("Por favor, selecione uma localização!");
-            // Dica: Seria legal trocar esse sout por um Alert do JavaFX
+            new Alert(Alert.AlertType.WARNING,String.format("Por favor, selecione uma localização!")).showAndWait();
             return;
         }
 
@@ -87,7 +87,7 @@ public class EquipamentoController {
             // 5. Salva o equipamento no estoque central
             App.estoque.adicionarEquipamento(novoEquipamento);
 
-            System.out.println("Equipamento salvo: " + novoEquipamento.getNome() + " em " + localizacaoSelecionada.getNome());
+            new Alert(Alert.AlertType.INFORMATION,String.format("Equipamento Registrado com sucesso!")).showAndWait();
 
             // 6. Limpa os campos após salvar com sucesso
             txNome.clear();
@@ -95,7 +95,7 @@ public class EquipamentoController {
             slLocalizacao.getSelectionModel().clearSelection();
 
         } else {
-            System.out.println("Por favor, preencha o Nome e a Série do Equipamento!");
+            new Alert(Alert.AlertType.WARNING,String.format("Por favor, preencha o Nome e a Série do Equipamento!")).showAndWait();
         }
     }
 

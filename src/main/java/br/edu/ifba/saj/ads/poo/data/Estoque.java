@@ -1,4 +1,6 @@
-package br.edu.ifba.saj.ads.poo.model;
+package br.edu.ifba.saj.ads.poo.data;
+
+import br.edu.ifba.saj.ads.poo.model.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

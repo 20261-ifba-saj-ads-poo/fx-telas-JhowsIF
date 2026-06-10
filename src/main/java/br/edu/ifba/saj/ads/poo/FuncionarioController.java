@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -55,8 +56,9 @@ public class FuncionarioController {
 
             txNome.clear();
             txDepartamento.clear();
+            atualizarTabela();
+            new Alert(Alert.AlertType.INFORMATION,String.format("Funcionario Registrado com sucesso!")).showAndWait();
         }
-        atualizarTabela();
     }
 
     @FXML
